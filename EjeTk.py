@@ -10,7 +10,7 @@ frm = ttk.Frame(raiz)
 frm.grid(columnspan=5,rowspan=6)
 
 # Lee imagen
-img=PhotoImage(file='knight.png')
+img=PhotoImage(file='Imagenes/reina.png')
 img=img.subsample(8)
 
 # Pon cosas en forma
