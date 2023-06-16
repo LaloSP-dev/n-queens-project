@@ -1,13 +1,14 @@
-Lista(B,B,[B]).
-Lista(A,B,[A|R]):- 
+lista(B,B,[B]).
+lista(A,B,[A|R]):- 
     C is A+1,
-    Lista(C,B,R).
+    lista(C,B,R).
+
 
 reinas(0,L,L):-
     noChoque(L).
 
 reinas(N,L,R):-
-    Lista(1,4,A),
+    lista(1,4,A),
     menber(X,A),
     append(L,[X],Ln),
     noChoque(Ln),
