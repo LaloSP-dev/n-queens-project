@@ -1,3 +1,8 @@
+Lista(B,B,[B]).
+Lista(A,B,[A|R]):- 
+    C is A+1,
+    Lista(C,B,R).
+
 reinas(0,L,L):-
     noChoque(L).
 
