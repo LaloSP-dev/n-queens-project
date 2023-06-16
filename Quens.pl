@@ -1,3 +1,4 @@
+/*
 lista(B,B,[B]).
 lista(A,B,[A|R]):- 
     C is A+1,
@@ -65,3 +66,31 @@ salto((X,Y),(X1,Y1),N):-
     Y1 is Y+1,
     X1>0,
     Y1=<N.
+
+*/
+% Predicado principal para resolver el problema de las N reinas
+n_reinas(N, Solucion) :-
+    % Generar una lista de números del 1 al N
+    numlist(1, N, Filas),
+    % Generar una permutación de las filas
+    permutation(Filas, Solucion),
+    % Verificar que la solución sea válida
+    valida(Solucion).
+
+% Predicado para verificar si una solución es válida
+valida([]).
+valida([X | Xs]) :-
+    % Verificar si no hay conflicto con las reinas anteriores
+    no_conflicto(X, Xs, 1),
+    % Verificar las reinas en las filas siguientes
+    valida(Xs).
+
+% Predicado para verificar si no hay conflicto con las reinas anteriores
+no_conflicto(_, [], _).
+no_conflicto(X, [Y | Ys], D) :-
+    % Verificar si hay conflicto en la misma columna o diagonal
+    X =\= Y + D,
+    X =\= Y - D,
+    % Verificar con la siguiente diagonal
+    D1 is D + 1,
+    no_conflicto(X, Ys, D1).
