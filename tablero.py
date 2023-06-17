@@ -17,8 +17,24 @@ class TableroAjedrez(tk.Frame):
                 color = "white" if (i+j) % 2 == 0 else "brown"
                 casilla = tk.Label(self, width=4, height=2, bg=color)
                 casilla.grid(row=i, column=j)
+                casilla.update()  # Actualizar la casilla para obtener su tamaño
                 fila.append(casilla)
             self.casillas.append(fila)
+
+    def agregar_reina(self, fila, columna):
+        imagen_path = "Imagenes/reina.png"
+        imagen = tk.PhotoImage(file=imagen_path)
+
+        # Ajustar el tamaño de la imagen al tamaño de la casilla
+        ancho_casilla = self.casillas[0][0].winfo_width()
+        alto_casilla = self.casillas[0][0].winfo_height()
+        imagen = imagen.subsample(ancho_casilla // 2, alto_casilla // 2)
+
+        imagen_label = tk.Label(self, image=imagen)
+        imagen_label.image = imagen
+        imagen_label.grid(row=fila, column=columna)
+
+
 
 def mostrar_tablero():
     n = int(entry.get())  # Obtener el tamaño del tablero desde la entrada
@@ -33,6 +49,10 @@ def mostrar_tablero():
         
         tablero = TableroAjedrez(tablero_frame, n)
         tablero.crear_tablero()
+        tablero.agregar_reina(0, 0)  # Agregar la reina en la casilla (0, 0)
+        tablero.agregar_reina(1, 1)
+        tablero.agregar_reina(2, 2)
+        tablero.agregar_reina(3, 3)
         tablero.pack(expand=True, fill="both")
 
 def cerrar_aplicacion():
