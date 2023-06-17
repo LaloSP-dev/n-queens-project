@@ -1,16 +1,13 @@
 from tkinter import *
 import tkinter as tk
-from PIL import ImageTk, Image
 from tkinter import messagebox
 
 class TableroAjedrez(tk.Frame):
-
     def __init__(self, parent, n):
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.n = n
         self.casillas = []
-
         self.crear_tablero()
     
     def crear_tablero(self):
@@ -23,7 +20,6 @@ class TableroAjedrez(tk.Frame):
                 fila.append(casilla)
             self.casillas.append(fila)
 
-
 def mostrar_tablero():
     n = int(entry.get())  # Obtener el tamaño del tablero desde la entrada
     if n < 4:
@@ -35,9 +31,6 @@ def mostrar_tablero():
         for widget in tablero_frame.winfo_children():
             widget.destroy()
         
-        # Destruir el widget de la imagen
-        imagen_label.destroy()
-
         tablero = TableroAjedrez(tablero_frame, n)
         tablero.crear_tablero()
         tablero.pack(expand=True, fill="both")
@@ -48,7 +41,6 @@ def cerrar_aplicacion():
 def minimizar_ventana():
     root.iconify()
 
-
 root = tk.Tk()
 root.geometry("500x500")  # Tamaño inicial de la ventana
 root.title("Problema de las N Reinas")
@@ -56,7 +48,7 @@ root.title("Problema de las N Reinas")
 frame = tk.Frame(root)
 frame.pack(expand=True)
 
-label = tk.Label(frame, text="Ingrese el numero de Reinas:")
+label = tk.Label(frame, text="Ingrese el número de Reinas:")
 label.pack()
 
 entry = tk.Entry(frame)
@@ -71,20 +63,22 @@ tablero_frame.pack(expand=True)
 tablero_frame.grid_rowconfigure(0, weight=1)
 tablero_frame.grid_columnconfigure(0, weight=1)
 
-# Cargar la imagen y ajustar su tamaño
-imagen = Image.open("Imagenes/chees.png")
-imagen = imagen.resize((400, 200), Image.ANTIALIAS)  # Ajustar el tamaño de la imagen
-imagen = ImageTk.PhotoImage(imagen)
+# Cargar la imagen
+imagen_path = "Imagenes/chees.png"
+imagen = tk.PhotoImage(file=imagen_path)
+
+# Ajustar el tamaño de la imagen
+imagen = imagen.subsample(8)  # Dividir el tamaño de la imagen por 2
 
 # Mostrar la imagen en el Label
-imagen_label = tk.Label(frame, image=imagen)
-imagen_label.pack(pady=10) 
+imagen_label = tk.Label(tablero_frame, image=imagen)
+imagen_label.pack(pady=10)
 
-# Agregar un marco para contener los botones
+# Agregar un frame para los botones
 botones_frame = tk.Frame(frame)
 botones_frame.pack()
 
-# Agregar botones estáticos en el marco de los botones
+# Se ponen los botones en estatico
 button1 = tk.Button(botones_frame, text="Cerrar", command=cerrar_aplicacion)
 button1.pack(side=tk.LEFT, padx=10)
 
