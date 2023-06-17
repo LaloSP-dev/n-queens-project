@@ -24,6 +24,9 @@ class TableroAjedrez(tk.Frame):
 
 def mostrar_tablero():
     n = int(entry.get())  # Obtener el tamaño del tablero desde la entrada
+    # Limpiar el contenido del marco del tablero
+    for widget in tablero_frame.winfo_children():
+        widget.destroy()
     tablero = TableroAjedrez(tablero_frame, n)
     tablero.crear_tablero()
     tablero.pack(expand=True, fill="both")
