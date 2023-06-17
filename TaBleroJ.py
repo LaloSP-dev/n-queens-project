@@ -4,11 +4,12 @@ import tkinter as ttk
 
 # Crea ventana raiz
 raiz = Tk()
+raiz.geometry("1200x720")
 
 # Crea una forma
 frm = ttk.Frame(raiz)
 frm.grid(columnspan=3,rowspan=3)
-#########################################Jose###################33
+#########################################Jose###################
 casillas = []
 
 def dibujar_tablero(num):
@@ -36,7 +37,7 @@ def dibujar_tablero(num):
             # Crea una casilla como un marco
             casilla = ttk.Frame(frm, width=casilla_size, height=casilla_size, background=color)
             casillas.append(casilla)
-            casilla.grid(row=fila, column=columna)
+            casilla.grid(row=fila+8, column=columna+8)
 
             # Agrega la casilla al tablero
             tablero[fila][columna] = casilla
@@ -46,9 +47,10 @@ def dibujar_tablero(num):
         ttk.Label(tablero[fila][columna], image=img).pack()
 
     # Ejemplo: Coloca una imagen en la casilla (0, 0)
-    colocar_imagen(1, 0)
-    colocar_imagen(2, 1)
-    colocar_imagen(3, 2)
+    colocar_imagen(0, 0)
+    colocar_imagen(1, 1)
+    colocar_imagen(2, 2)
+    colocar_imagen(3, 3)
 
 
 #############################################################################
@@ -60,7 +62,7 @@ img=img.subsample(9)
 
 
 # Pon cosas en forma
-ttk.Label(frm, text='Hola Mundo!').grid(column=0, row=0)
+ttk.Label(frm, text='Ingresa el numero de reinas').grid(column=0, row=0)
 
 ttk.Button(frm,text='Termina',command=raiz.destroy).grid(column=0, row=5)
 ttk.Button(frm,text='Minimiza',command=raiz.iconify).grid(column=2, row=5)
@@ -74,7 +76,7 @@ ttk.Button(frm,text='Minimiza',command=raiz.iconify).grid(column=2, row=5)
 # Lee algo
 var = IntVar()
 
-num = ttk.Entry(raiz,width=10,textvariable=var)
+num = ttk.Entry(frm,width=10,textvariable=var)
 num.grid(column=2,row=0)
 
 
