@@ -13,6 +13,7 @@ frm.grid(columnspan=5,rowspan=6)
 img=PhotoImage(file='Imagenes/reina.png')
 img=img.subsample(8)
 
+
 # Pon cosas en forma
 ttk.Label(frm, text='Hola Mundo!').grid(column=0, row=0)
 
