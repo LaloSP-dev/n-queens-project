@@ -2,7 +2,6 @@ from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
 from tkinter import messagebox
-from tkinter.tix import IMAGETEXT
 
 class TableroAjedrez(tk.Frame):
 
@@ -77,7 +76,7 @@ imagen = Image.open("Imagenes/chees.png")
 imagen = imagen.resize((400, 200), Image.ANTIALIAS)  # Ajustar el tamaño de la imagen
 imagen = ImageTk.PhotoImage(imagen)
 
-# Mostrar la imagen en un widget Label
+# Mostrar la imagen en el Label
 imagen_label = tk.Label(frame, image=imagen)
 imagen_label.pack(pady=10) 
 
