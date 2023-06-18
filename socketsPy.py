@@ -1,5 +1,7 @@
 import socket
 import sys
+import tablero as tb
+
 
 host = 'localhost'
 port = 50000
@@ -22,7 +24,8 @@ except socket.gaierror:
 print('Conectandose al sistema')
 s.connect((rip,port))
 
-e = input('Elemento:')
+#e = input('Elemento:')
+#e= tb.valor
 
 query = bytes(f'{e}.\nno.\n'.encode('ascii')) # dos lineas
 try:
@@ -38,6 +41,8 @@ while not '\n' in reply:
     reply += res.decode()
 
 print(reply)
+
+print(f'Este el reply {reply}')
 
 fin = bytes('0.\nfin.\n'.encode('ascii')) # dos lineas
 s.sendall(fin)
