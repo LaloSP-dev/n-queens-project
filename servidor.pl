@@ -4,7 +4,7 @@
 
 :- use_module(library(socket)).
 
-%:- consult(metro).
+:- consult(queens).
 
 servidor:-
     tcp_socket(Socket), 
@@ -35,29 +35,10 @@ doService(Stream):-
     repeat,
        % Antes era member(X, [hola,esta,es,una,prueba,fin]),
        read(Stream,L),read(Stream,E),
-       (member(E,L), write(Stream, yes), put(Stream, 13), put(Stream, 10);
+       (reinasP(N,L), write(Stream, yes), put(Stream, 13), put(Stream, 10);
         not(member(E,L)),write(Stream, no), put(Stream, 13), put(Stream, 10)),
        flush_output(Stream),
     E==fin, % Aca terminas
     !,
     write(' Adios '), nl.
 
-%%% Lo del metro
-% doService(Stream):-
-%     % Manda Varias cadenas
-%     repeat,
-%        % Lee estacion del metro
-%        read(Stream,E),
-%        write('La estacion es '),write(E),nl,
-%        (linea(N,L),member(E,L),
-%        write(Stream, N), put(Stream, 13), put(Stream, 10),
-%        write(Stream, L), put(Stream, 13), put(Stream, 10);
-%         write(Stream, no), put(Stream, 13), put(Stream, 10)),
-%        flush_output(Stream),
-%     E==fin, % Aca terminas
-%     !,
-%     write(' Adios '), nl.
-
-
-member(X, [X|Xs]).
-member(X, [Y|Ys]):-member(X,Ys).

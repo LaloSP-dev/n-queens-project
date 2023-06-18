@@ -22,10 +22,10 @@ except socket.gaierror:
 print('Conectandose al sistema')
 s.connect((rip,port))
 
-l = input('Lista:')
-e = input('Elemento:')
+#l = input('Lista:')
+e = input('N reinas:')
 
-query = bytes(f'{l}.\n{e}.\n'.encode('ascii')) # dos lineas
+query = bytes(f'{e}.\nno.\n'.encode('ascii')) # dos lineas
 try:
     s.sendall(query)
 except socket.error:
