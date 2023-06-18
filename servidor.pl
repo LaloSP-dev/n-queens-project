@@ -29,7 +29,7 @@ process_client(Socket, Peer) :-
             doService(StreamPair),
             close(StreamPair)).
 
-%%% Lo de las listas
+%%% Soluciones de N reinas
 doService(Stream):-
     % Manda Varias cadenas
     repeat,

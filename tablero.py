@@ -1,6 +1,9 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
+import socketsPy as sk
+
+
 
 class TableroAjedrez(tk.Frame):
     def __init__(self, parent, n):
@@ -34,7 +37,9 @@ class TableroAjedrez(tk.Frame):
         imagen_label.image = imagen
         imagen_label.grid(row=fila, column=columna)
 
-
+def valor():
+    n= int(entry.get())
+    return n
 
 def mostrar_tablero():
     n = int(entry.get())  # Obtener el tamaño del tablero desde la entrada
@@ -104,5 +109,10 @@ button1.pack(side=tk.LEFT, padx=10)
 
 button2 = tk.Button(botones_frame, text="Minimizar", command=minimizar_ventana)
 button2.pack(side=tk.LEFT, padx=10)
+
+print(sk.reply)
+
+
+
 
 root.mainloop()
