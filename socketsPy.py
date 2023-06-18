@@ -1,9 +1,7 @@
 
 import socket
 import sys
-
-
-
+#import tablero as tb
 host = 'localhost'
 port = 50000
 s = None
@@ -39,7 +37,7 @@ def utilizar_valor_ingresado(n):
     while not '\n' in reply:
         res = s.recv(256)
         reply += res.decode()
-
+    
     #print(reply)
     #print(f'Este el reply {reply}')
 
@@ -47,3 +45,5 @@ def utilizar_valor_ingresado(n):
     s.sendall(fin)
     res = s.recv(256)
     s.close()
+    
+    return reply

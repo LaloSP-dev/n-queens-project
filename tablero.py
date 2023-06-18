@@ -46,17 +46,42 @@ def mostrar_tablero():
     elif n > 15:
         messagebox.showerror("Error", "El tamaño máximo del tablero es 15.")
     else:
-        sk.utilizar_valor_ingresado(n)
+        values = sk.utilizar_valor_ingresado(n).split(']')
+        arreglo = values[0]
         # Limpiar el contenido del marco del tablero
         for widget in tablero_frame.winfo_children():
             widget.destroy()
         
         tablero = TableroAjedrez(tablero_frame, n)
         tablero.crear_tablero()
-        tablero.agregar_reina(0, 0)  # Agregar la reina en la casilla (0, 0)
-        tablero.agregar_reina(1, 1)
-        tablero.agregar_reina(2, 2)
-        tablero.agregar_reina(3, 3)
+
+        #tablero.agregar_reina(0, 0)  # Agregar la reina en la casilla (0, 0)
+        #tablero.agregar_reina(1, 1)
+        #tablero.agregar_reina(2, 2)
+        #tablero.agregar_reina(3, 3)
+
+
+        # Procesar los valores recibidos en reply según sea necesario
+        # Puedes realizar cualquier operación con los valores aquí
+    
+        # Ejemplo: Dividir reply en una lista de listas
+        #print(values)
+        #values = reply.split('\n')
+        print(values)
+        print(arreglo)
+        #values = [list(map(int, sublist.split())) for sublist in values if sublist]
+    
+        # Ejemplo: Imprimir los valores
+        #for sublist in values:
+         #   for value in sublist:
+          #      print(value, end=' ')
+           # print()
+
+            # Resto del código...
+
+
+
+
         tablero.pack(expand=True, fill="both")
     
 
@@ -117,6 +142,6 @@ button1.pack(side=tk.LEFT, padx=10)
 button2 = tk.Button(botones_frame, text="Minimizar", command=minimizar_ventana)
 button2.pack(side=tk.LEFT, padx=10)
 
-#print(sk.reply)
+
 
 root.mainloop()
