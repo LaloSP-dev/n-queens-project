@@ -2,7 +2,7 @@ import socket
 import sys
 
 host = 'localhost'
-port = 8000
+port = 50000
 s = None
 
 print('Crea Socket')
