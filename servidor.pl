@@ -35,8 +35,8 @@ doService(Stream):-
     repeat,
        % Antes era member(X, [hola,esta,es,una,prueba,fin]),
        read(Stream,L),read(Stream,E),
-       (reinasP(N,L), write(Stream, yes), put(Stream, 13), put(Stream, 10);
-        not(member(E,L)),write(Stream, no), put(Stream, 13), put(Stream, 10)),
+       (reinasP(N,L), write(Stream, Lista), put(Stream, 13), put(Stream, 10);
+         write(Stream, no), put(Stream, 13), put(Stream, 10)),
        flush_output(Stream),
     E==fin, % Aca terminas
     !,
