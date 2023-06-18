@@ -8,7 +8,7 @@
 servidor:-
     write('Empieza servidor'),nl,
     socket('AF_INET',Socket),
-    socket_bind(Socket, 'AF_INET'(N, 50000))
+    socket_bind(Socket, 'AF_INET'(N, 50000)),
     socket_listen(Socket, 5),
     socket_accept(Socket, ClienteIP, Stream),
     doService(ClienteIP, Stream),
