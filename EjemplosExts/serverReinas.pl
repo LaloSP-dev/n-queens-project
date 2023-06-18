@@ -57,6 +57,8 @@ doService(Stream):-
 %     E==fin, % Aca terminas
 %     !,
 %     write(' Adios '), nl.
+
+
 all_solutions(Numero, Listas):-
     findall(Lista, (reinasP(Numero, Lista)), Listas).
 reinasP(N,L):-

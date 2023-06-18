@@ -22,8 +22,7 @@ except socket.gaierror:
 print('Conectandose al sistema')
 s.connect((rip,port))
 
-#l = input('Lista:')
-e = input('N reinas:')
+e = input('Elemento:')
 
 query = bytes(f'{e}.\nno.\n'.encode('ascii')) # dos lineas
 try:
@@ -40,7 +39,7 @@ while not '\n' in reply:
 
 print(reply)
 
-fin = bytes('[].\nfin.\n'.encode('ascii')) # dos lineas
+fin = bytes('0.\nfin.\n'.encode('ascii')) # dos lineas
 s.sendall(fin)
 res = s.recv(256)
 s.close()
