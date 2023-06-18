@@ -1,7 +1,7 @@
 
 import socket
 import sys
-import tablero 
+
 
 
 host = 'localhost'

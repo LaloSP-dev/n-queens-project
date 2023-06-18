@@ -46,8 +46,6 @@ def mostrar_tablero():
     elif n > 15:
         messagebox.showerror("Error", "El tamaño máximo del tablero es 15.")
     else:
-        #sk.valor_ingresado =n
-        #sk.utilizar_valor_ingresado(n)
         sk.utilizar_valor_ingresado(n)
         # Limpiar el contenido del marco del tablero
         for widget in tablero_frame.winfo_children():
