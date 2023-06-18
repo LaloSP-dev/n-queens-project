@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 import socketsPy as sk
+import ast
 
 
 
@@ -46,8 +47,8 @@ def mostrar_tablero():
     elif n > 15:
         messagebox.showerror("Error", "El tamaño máximo del tablero es 15.")
     else:
-        values = sk.utilizar_valor_ingresado(n).split(']')
-        arreglo = values[0]
+        values = sk.utilizar_valor_ingresado(n)
+        lista = ast.literal_eval(values)
         # Limpiar el contenido del marco del tablero
         for widget in tablero_frame.winfo_children():
             widget.destroy()
@@ -68,7 +69,8 @@ def mostrar_tablero():
         #print(values)
         #values = reply.split('\n')
         print(values)
-        print(arreglo)
+        print(lista)
+        print(lista[0][0])
         #values = [list(map(int, sublist.split())) for sublist in values if sublist]
     
         # Ejemplo: Imprimir los valores
