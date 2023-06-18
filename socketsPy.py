@@ -1,6 +1,7 @@
+
 import socket
 import sys
-import tablero as tb
+import tablero 
 
 
 host = 'localhost'
@@ -24,27 +25,25 @@ except socket.gaierror:
 print('Conectandose al sistema')
 s.connect((rip,port))
 
-#e = input('Elemento:')
-#e= tb.valor
+def utilizar_valor_ingresado(n):
+    e = n
+    query = bytes(f'{e}.\nno.\n'.encode('ascii')) # dos lineas
+    try:
+        s.sendall(query)
+    except socket.error:
+        print('Error de coms')
 
-query = bytes(f'{e}.\nno.\n'.encode('ascii')) # dos lineas
-try:
-    s.sendall(query)
-except socket.error:
-    print('Error de coms')
+    reply = s.recv(256)
+    print(reply)
+    reply = reply.decode()
+    while not '\n' in reply:
+        res = s.recv(256)
+        reply += res.decode()
 
-reply = s.recv(256)
-print(reply)
-reply = reply.decode()
-while not '\n' in reply:
+    #print(reply)
+    #print(f'Este el reply {reply}')
+
+    fin = bytes('0.\nfin.\n'.encode('ascii')) # dos lineas
+    s.sendall(fin)
     res = s.recv(256)
-    reply += res.decode()
-
-print(reply)
-
-print(f'Este el reply {reply}')
-
-fin = bytes('0.\nfin.\n'.encode('ascii')) # dos lineas
-s.sendall(fin)
-res = s.recv(256)
-s.close()
+    s.close()

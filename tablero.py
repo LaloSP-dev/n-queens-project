@@ -37,9 +37,7 @@ class TableroAjedrez(tk.Frame):
         imagen_label.image = imagen
         imagen_label.grid(row=fila, column=columna)
 
-def valor():
-    n= int(entry.get())
-    return n
+
 
 def mostrar_tablero():
     n = int(entry.get())  # Obtener el tamaño del tablero desde la entrada
@@ -48,6 +46,9 @@ def mostrar_tablero():
     elif n > 15:
         messagebox.showerror("Error", "El tamaño máximo del tablero es 15.")
     else:
+        #sk.valor_ingresado =n
+        #sk.utilizar_valor_ingresado(n)
+        sk.utilizar_valor_ingresado(n)
         # Limpiar el contenido del marco del tablero
         for widget in tablero_frame.winfo_children():
             widget.destroy()
@@ -59,6 +60,10 @@ def mostrar_tablero():
         tablero.agregar_reina(2, 2)
         tablero.agregar_reina(3, 3)
         tablero.pack(expand=True, fill="both")
+    
+
+
+
 
 def cerrar_aplicacion():
     root.destroy()
@@ -76,8 +81,12 @@ frame.pack(expand=True)
 label = tk.Label(frame, text="Ingrese el número de Reinas:")
 label.pack()
 
+# Lee algo
+var = IntVar()
+
 entry = tk.Entry(frame)
 entry.pack()
+
 
 button = tk.Button(frame, text="Mostrar tablero", command=mostrar_tablero)
 button.pack()
@@ -110,9 +119,6 @@ button1.pack(side=tk.LEFT, padx=10)
 button2 = tk.Button(botones_frame, text="Minimizar", command=minimizar_ventana)
 button2.pack(side=tk.LEFT, padx=10)
 
-print(sk.reply)
-
-
-
+#print(sk.reply)
 
 root.mainloop()
