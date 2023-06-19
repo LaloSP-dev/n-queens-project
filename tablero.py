@@ -55,12 +55,20 @@ def mostrar_tablero():
         
         tablero = TableroAjedrez(tablero_frame, n)
         tablero.crear_tablero()
+        
+        #tablero.agregar_reina(Fila,Columna)
 
-        #tablero.agregar_reina(0, 0)  # Agregar la reina en la casilla (0, 0)
-        #tablero.agregar_reina(1, 1)
-        #tablero.agregar_reina(2, 2)
-        #tablero.agregar_reina(3, 3)
+        tablero.agregar_reina(lista[0][0]-1, 0)  # Agregar la reina en la casilla (0, 0)
+        tablero.agregar_reina(lista[0][1]-1, 1)
+        tablero.agregar_reina(lista[0][2]-1, 2)
+        tablero.agregar_reina(lista[0][3]-1, 3)
 
+        """
+        tablero.agregar_reina(0,lista[0][0]-1)  # Agregar la reina en la casilla (0, 0)
+        tablero.agregar_reina(1,lista[0][1]-1)
+        tablero.agregar_reina(2,lista[0][2]-1)
+        tablero.agregar_reina(3,lista[0][3]-1)
+        """
 
         # Procesar los valores recibidos en reply según sea necesario
         # Puedes realizar cualquier operación con los valores aquí
