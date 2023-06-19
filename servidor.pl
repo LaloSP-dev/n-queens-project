@@ -42,22 +42,6 @@ doService(Stream):-
     !,
     write(' Adios '), nl.
 
-%%% Lo del metro
-% doService(Stream):-
-%     % Manda Varias cadenas
-%     repeat,
-%        % Lee estacion del metro
-%        read(Stream,E),
-%        write('La estacion es '),write(E),nl,
-%        (linea(N,L),member(E,L),
-%        write(Stream, N), put(Stream, 13), put(Stream, 10),
-%        write(Stream, L), put(Stream, 13), put(Stream, 10);
-%         write(Stream, no), put(Stream, 13), put(Stream, 10)),
-%        flush_output(Stream),
-%     E==fin, % Aca terminas
-%     !,
-%     write(' Adios '), nl.
-
 
 all_solutions(Numero, Listas):-
     findall(Lista, (reinasP(Numero, Lista)), Listas).

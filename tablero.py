@@ -5,7 +5,6 @@ import socketsPy as sk
 import ast
 
 
-
 class TableroAjedrez(tk.Frame):
     def __init__(self, parent, n):
         tk.Frame.__init__(self, parent)
@@ -56,18 +55,14 @@ def mostrar_tablero():
         tablero = TableroAjedrez(tablero_frame, n)
         tablero.crear_tablero()
         
-        #tablero.agregar_reina(Fila,Columna)
-
-        tablero.agregar_reina(lista[0][0]-1, 0)  # Agregar la reina en la casilla (0, 0)
+        for i in range (n):
+            tablero.agregar_reina(lista[0][i]-1, i)
+      
+        """
+        tablero.agregar_reina(lista[0][0]-1, 0) #tablero.agregar_reina(Fila,Columna) Agrega las reinas 
         tablero.agregar_reina(lista[0][1]-1, 1)
         tablero.agregar_reina(lista[0][2]-1, 2)
         tablero.agregar_reina(lista[0][3]-1, 3)
-
-        """
-        tablero.agregar_reina(0,lista[0][0]-1)  # Agregar la reina en la casilla (0, 0)
-        tablero.agregar_reina(1,lista[0][1]-1)
-        tablero.agregar_reina(2,lista[0][2]-1)
-        tablero.agregar_reina(3,lista[0][3]-1)
         """
 
         # Procesar los valores recibidos en reply según sea necesario
@@ -76,27 +71,11 @@ def mostrar_tablero():
         # Ejemplo: Dividir reply en una lista de listas
         #print(values)
         #values = reply.split('\n')
-        print(values)
+        print(f'Posibles soluciones para {n} reinas')
         print(lista)
-        print(lista[0][0])
-        #values = [list(map(int, sublist.split())) for sublist in values if sublist]
-    
-        # Ejemplo: Imprimir los valores
-        #for sublist in values:
-         #   for value in sublist:
-          #      print(value, end=' ')
-           # print()
-
-            # Resto del código...
-
-
-
 
         tablero.pack(expand=True, fill="both")
     
-
-
-
 
 def cerrar_aplicacion():
     root.destroy()
@@ -151,7 +130,6 @@ button1.pack(side=tk.LEFT, padx=10)
 
 button2 = tk.Button(botones_frame, text="Minimizar", command=minimizar_ventana)
 button2.pack(side=tk.LEFT, padx=10)
-
 
 
 root.mainloop()

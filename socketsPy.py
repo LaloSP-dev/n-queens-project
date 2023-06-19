@@ -32,7 +32,7 @@ def utilizar_valor_ingresado(n):
         print('Error de coms')
 
     reply = s.recv(256)
-    print(reply)
+    #print(reply)
     reply = reply.decode()
     while not '\n' in reply:
         res = s.recv(256)
