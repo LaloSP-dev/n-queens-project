@@ -2,6 +2,27 @@
 import socket
 import sys
 #import tablero as tb
+""""
+################################################################################################    
+                                Lenguajes De Programacion 
+                                    Proyecto Final
+
+Integrantes del Equipo 10:
+
+    Nombre: Guerrero Torres Jesus Cesar 
+    Matricula: 2173048598
+
+    Nombre: Sanchez Pascual Eduardo
+    Matricula: 2173048730
+
+    Nombre: Treviño De Jesus Jose Alfredo
+    Matricula: 2173011028
+
+Lenguajes de Programacion 
+Grupo:CJ01
+Mac Kinney Romero Rene
+#################################################################################################
+"""
 host = 'localhost'
 port = 50000
 s = None

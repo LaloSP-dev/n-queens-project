@@ -3,8 +3,30 @@ import tkinter as tk
 from tkinter import messagebox
 import socketsPy as sk
 import ast
+""""
+################################################################################################    
+                                Lenguajes De Programacion 
+                                    Proyecto Final
 
+Integrantes del Equipo 10:
 
+    Nombre: Guerrero Torres Jesus Cesar 
+    Matricula: 2173048598
+
+    Nombre: Sanchez Pascual Eduardo
+    Matricula: 2173048730
+
+    Nombre: Treviño De Jesus Jose Alfredo
+    Matricula: 2173011028
+
+Nota: despues de haber lanzado el servidor, ejecutar unicamente este archivo ("tablero.py") 
+        para lanzar la interfaz grafica que da visulamente las soluciones   
+
+Lenguajes de Programacion 
+Grupo:CJ01
+Mac Kinney Romero Rene
+#################################################################################################
+"""
 class TableroAjedrez(tk.Frame):
     def __init__(self, parent, n):
         tk.Frame.__init__(self, parent)
@@ -57,6 +79,7 @@ def mostrar_tablero():
         
         for i in range (n):
             tablero.agregar_reina(lista[0][i]-1, i)
+            
       
         """
         tablero.agregar_reina(lista[0][0]-1, 0) #tablero.agregar_reina(Fila,Columna) Agrega las reinas 
