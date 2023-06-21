@@ -24,7 +24,6 @@ Nota: despues de haber lanzado el servidor, ejecutar unicamente este archivo ("t
 
 Lenguajes de Programacion 
 Grupo:CJ01
-Mac Kinney Romero Rene
 #################################################################################################
 """
 class TableroAjedrez(tk.Frame):

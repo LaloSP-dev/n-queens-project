@@ -20,7 +20,6 @@ Integrantes del Equipo 10:
 
 Lenguajes de Programacion 
 Grupo:CJ01
-Mac Kinney Romero Rene
 #################################################################################################
 """
 host = 'localhost'
