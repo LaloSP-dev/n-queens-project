@@ -52,7 +52,7 @@ class TableroAjedrez(tk.Frame):
         # Ajustar el tamaño de la imagen al tamaño de la casilla
         ancho_casilla = self.casillas[0][0].winfo_width()
         alto_casilla = self.casillas[0][0].winfo_height()
-        imagen = imagen.subsample(ancho_casilla // 2, alto_casilla // 2)
+        imagen = imagen.subsample(ancho_casilla // 1, alto_casilla // 1)
 
         imagen_label = tk.Label(self, image=imagen)
         imagen_label.image = imagen

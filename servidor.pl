@@ -30,7 +30,7 @@ dispatch(AcceptFd):-
 %     thread_create(process_client(Socket, Peer), _,
 %                      [ detached(true)
 %                      ]).
-    % dispatch(AcceptFd). % Con esta linea se pueden atender muchas llamadas
+    %dispatch(AcceptFd). % Con esta linea se pueden atender muchas llamadas
     % Sin ella solo se atiende una llamada
 
 process_client(Socket, Peer) :-
